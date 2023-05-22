@@ -33,14 +33,6 @@ Heap<T>::Heap(std::vector<T> start_values) {
 }
 template <typename T>
 void Heap<T>::insert(T value) {
-   values.push_back(value);
-   auto it = find(values.begin(), values.end(), value);
-   int index = it - values.begin();
-   int initial_parent_index = floor((index-1)/2);
-  for (int parent_index = initial_parent_index; parent_index >= 0; parent_index--) {
-    heapify(parent_index);
-  }
-   
 }
 
 template <typename T>
