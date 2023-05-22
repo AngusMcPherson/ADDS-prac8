@@ -38,7 +38,7 @@ void Heap<T>::insert(T value) {
 template <typename T>
 void Heap<T>::remove(T value) {
     int initialIndex = values.size()
-    for (int i = 0; i < values.size();  i++) {
+    for (int i = 0; i < initialIndex;  i++) {
         if (values[i] == value) {
             initialIndex = i;
             break;
