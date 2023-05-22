@@ -20,31 +20,37 @@ class Heap {
 template <typename T>
 Heap<T>::Heap() {}
 
-
 template <typename T>
-void Heap<T>::remove(T value) {
-  for (int i = 0; i < values.size(); i++) {
-    if (values[i] == value) {
-      int initialIndex = i;
-      break;
-    }
+Heap<T>::Heap(std::vector<T> start_values) {
+  for (int i = 0; i < start_values.size(); i++) {
+    values.push_back(start_values.at(i));
   }
-  int index = initialIndex - values.begin();
-  values.at(index) = values.at(values.size()-1);
-  values.pop_back();
-  int initial_parent_index = floor((index-1)/2);
-  for (int parent_index = initial_parent_index; parent_index >= 0; parent_index--) {
+  int initial_parent_index = floor(values.size() / 2) - 1;
+  for (int parent_index = initial_parent_index; parent_index >= 0;
+       parent_index--) {
     heapify(parent_index);
   }
 }
-
 template <typename T>
 void Heap<T>::insert(T value) {
 }
 
 template <typename T>
 void Heap<T>::remove(T value) {
-
+    initialIndex = values.size()
+    for (int i = 0; i < values.size(); i++) {
+        if (values[i] == value) {
+            int initialIndex = i;
+            break;
+        }
+    }
+    int index = initialIndex - values.begin();
+    values.at(index) = values.at(values.size()-1);
+    values.pop_back();
+    int initial_parent_index = floor((index-1)/2);
+    for (int parent_index = initial_parent_index; parent_index >= 0; parent_index--) {
+        heapify(parent_index);
+    }
 }
 
 template <typename T>
